@@ -44,7 +44,7 @@ $aProductos[] = array(
             <div class="col-12">
                 <table class="table border table-hover">
                     <thead>
-                        <th><strong> Nombre</th>
+                        <th><strong>Nombre</th>
                         <th><strong>Marca</th>
                         <th><strong>Modelo</th>
                         <th><strong>Stock</th>
