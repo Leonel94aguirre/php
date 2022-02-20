@@ -1,5 +1,10 @@
 
 <?php
+if (isset($_POST["txtUsusario"]) && isset ($_POST["txtClave"])) {
+    
+    ;
+} else { ;
+}
 function sumar ($num1 , $num2) {
     $resultado = $num1 + $num2;
     return $resultado;
@@ -19,9 +24,13 @@ $segundo =  "La suma es:" . sumar(100,20);
 </head>
 <body>
 <main>
+    <div class="alert alert-primary" role="alert">
+
+    </div>
     <?php echo $mensaje; ?>
     <?php echo $segundo; ?>
 </main>
 </body>
 </html>
 
+<button type="submit" class="btn btn-primary my-3">SALIR</button>
