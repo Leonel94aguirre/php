@@ -12,23 +12,29 @@ if (!isset($_SESSION["listadoClientes"])) {
 
 print_r($_SESSION);
 
-
 if ($_POST) {
+    $nombre = $_REQUEST["txtNombre"];
+    $dni = $_REQUEST["txtDni"];
+    $telefono = $_REQUEST["txtTelefono"];
+    $edad = $_REQUEST["txtEdad"];
+
+
+
     if (isset($_POST["btnEnviar"])) {
         $_SESSION["listadoClientes"][] = array(
-            "nombre" => $_REQUEST["txtNombre"],
-            "dni" => $_REQUEST["txtDni"],
-            "telefono" => $_REQUEST["txtTelefono"],
-            "edad" => $_REQUEST["txtEdad"],
-        ); 
+            "nombre" => $nombre,
+            "dni" => $dni,
+            "telefono" => $telefono,
+            "edad" => $edad,
+        );
     } else {
         if (isset($_POST["btnBorrar"])) {
             session_destroy();
+            $_SESSION["listadoClientes"] = array();
         }
     }
-
-    
 }
+
 
 ?>
 <!DOCTYPE html>
