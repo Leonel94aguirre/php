@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 
 session_start();
 
-if (!isset($_SESSION["array"])) {
-    $_SESSION["array"] = array();
+if (!isset($_SESSION["listadoClientes"])) {
+    $_SESSION["listadoClientes"] = array();
 }
 
 
@@ -15,7 +15,7 @@ print_r($_SESSION);
 
 if ($_POST) {
     if (isset($_POST["btnEnviar"])) {
-        $_SESSION["array"][] = array(
+        $_SESSION["listadoClientes"][] = array(
             "nombre" => $_REQUEST["txtNombre"],
             "dni" => $_REQUEST["txtDni"],
             "telefono" => $_REQUEST["txtTelefono"],
@@ -82,7 +82,7 @@ if ($_POST) {
                 </thead>
                 <tbody>
                     <?php
-                    foreach ($_SESSION["array"] as $cliente) {
+                    foreach ($_SESSION["listadoClientes"] as $cliente) {
                     ?>
                         <tr>
                             <td><?php echo $cliente["nombre"]; ?></td>
