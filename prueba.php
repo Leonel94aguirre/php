@@ -4,6 +4,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+$_SESSION["listadoClientes"] [] = array("Ana", "Valle", "ana@correo.com");
+$_SESSION["listadoClientes"] [] = array("Pepe", "Perez", "pepe@correo.com");
+$_SESSION["listadoClientes"] [] = array("Martin", "Puentes", "martin@correo.com");
+
 print_r($_SESSION);
 
 if (isset($_POST["txtUsusario"]) && isset ($_POST["txtClave"])) {

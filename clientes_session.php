@@ -5,22 +5,29 @@ error_reporting(E_ALL);
 
 session_start();
 
-if(!isset($_SESSION["array"])){
-$_SESSION["array"] = array();
+if (!isset($_SESSION["array"])) {
+    $_SESSION["array"] = array();
 }
 
 
+print_r($_SESSION);
 
 
+if ($_POST) {
+    if (isset($_POST["btnEnviar"])) {
+        $_SESSION["array"][] = array(
+            "nombre" => $_REQUEST["txtNombre"],
+            "dni" => $_REQUEST["txtDni"],
+            "telefono" => $_REQUEST["txtTelefono"],
+            "edad" => $_REQUEST["txtEdad"],
+        ); 
+    } else {
+        if (isset($_POST["btnBorrar"])) {
+            session_destroy();
+        }
+    }
 
-if($_POST) {
-    $_SESSION["array"][] = array(
-    "nombre" => $_REQUEST["txtNombre"],
-    "dni" => $_REQUEST["txtDni"],
-    "telefono" => $_REQUEST["txtTelefono"],
-    "edad" => $_REQUEST["txtEdad"],
-    );
-
+    
 }
 
 ?>
@@ -60,7 +67,8 @@ if($_POST) {
                     <input type="text" name="txtEdad" id="txtEdad" class="form-control my-2" placeholder="99">
                 </label>
                 <div class="my-3">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" name="btnEnviar" class="btn btn-primary">ENVIAR</button>
+                    <button type="submit" name="btnBorrar" class="btn btn-secondary">BORRAR</button>
                 </div>
             </form>
         </div>
@@ -74,7 +82,7 @@ if($_POST) {
                 </thead>
                 <tbody>
                     <?php
-                foreach ($_SESSION["array"] as $cliente) {
+                    foreach ($_SESSION["array"] as $cliente) {
                     ?>
                         <tr>
                             <td><?php echo $cliente["nombre"]; ?></td>
@@ -83,7 +91,7 @@ if($_POST) {
                             <td><?php echo $cliente["edad"]; ?></td>
                         </tr>
                     <?php } ?>
-                    
+
                 </tbody>
             </table>
         </div>
