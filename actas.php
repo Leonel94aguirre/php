@@ -5,17 +5,9 @@ error_reporting(E_ALL);
 
 //Definicion de array
 $aAlumnos = array();
-$aAlumnos[] = array("nombre" => "Jessica Perez", "aNotas" => array(9, 8));
-$aAlumnos[] = array("nombre" => "Ana Valle", "aNotas" => array(4, 9));
-$aAlumnos[] = array("nombre" => "Emiliano Aguirre", "aNotas" => array(7, 6));
-
-function promediar($aNumeros){
-    $suma = 0;
-    foreach ($aNumeros as $numero) {
-        $suma += $numero;
-    } 
-    return $suma / count($aNumeros); 
-}
+$aAlumnos[] = array("nombre" => "Jessica Perez", "nota1" => 9, "nota2" => 8);
+$aAlumnos[] = array("nombre" => "Ana Valle", "nota1" => 3, "nota2" => 9);
+$aAlumnos[] = array("nombre" => "Emiliano Aguirre", "nota1" => 7, "nota2" => 8);
 
 ?>
 <!DOCTYPE html>
@@ -54,14 +46,14 @@ function promediar($aNumeros){
                         $sumPromedios = 0;
                         foreach ($aAlumnos as $alumno):
                             $pos++;
-                            $promedio = promediar($alumno["aNotas"]);
+                            $promedio = ($alumno["nota1"] + $alumno["nota2"]) / 2;
                             $sumPromedios += $promedio;
                         ?>
                         <tr>
                             <td><?php echo $pos; ?></td>
                             <td><?php echo $alumno["nombre"]; ?></td>
-                            <td><?php echo $alumno["aNotas"][0]; ?></td>
-                            <td><?php echo $alumno["aNotas"][1]; ?></td>
+                            <td><?php echo $alumno["nota1"]; ?></td>
+                            <td><?php echo $alumno["nota2"]; ?></td>
                             <td><?php echo number_format($promedio, 2, ",", "."); ?></td>
                         </tr>
                         <?php endforeach; ?>
