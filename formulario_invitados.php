@@ -23,7 +23,7 @@ if ($_POST) {
         if (in_array($nombre, $aInvitados)) //$nombre esta dentro del array $aInvitados?
         {
             $aMensaje = array(
-                "texto" => "¡Bienvenid@ $nombre a la reunion Pony! Su código de acceso es Pony for ever" ,
+                "texto" => "¡Bienvenid@ $nombre a la reunion Pony! Su código de acceso es Pony forever" ,
                 "estado" => "success"
             );
         } else {
@@ -36,7 +36,7 @@ if ($_POST) {
     } else if (isset($_REQUEST['btnVip'])) {
         $respuesta = trim($_REQUEST['txtVip']);
         //Pregunto: es verde la respuesta?
-        if ($respuesta == "Pony for ever") {
+        if ($respuesta == "Pony forever") {
             //Si es asi creo un msj "Su código de acceso es"
             $aMensaje = array("texto" => "Su código de acceso VIP es " . rand(1000, 9999), "estado" => "success");
         } else {
