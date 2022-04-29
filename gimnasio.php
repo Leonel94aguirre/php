@@ -8,21 +8,13 @@ error_reporting(E_ALL);
 
 //Definición de clases
 
-class Persona {
+abstract class Persona {
     protected $dni;
     protected $nombre;
     protected $correo;
     protected $celular;
 
-    public function __get($propiedad)
-    {
-        return $this->$propiedad;
-    }
-
-    public function __set($propiedad, $valor)
-    {
-        $this->$propiedad = $valor;
-    }
+    abstract public function imprimir();    
 
 }
 
@@ -66,6 +58,8 @@ class Clase{
             } echo "<br><br>";
 
     }
+
+    
 }
 
 class Alumno extends Persona {
@@ -90,6 +84,10 @@ class Alumno extends Persona {
         $this->altura = $altura;
         $this->aptoFisico = $aptoFisico;
     }
+
+    public function imprimir(){
+
+    }
 }
 
 class Entrenador extends Persona {
@@ -107,11 +105,16 @@ class Entrenador extends Persona {
 
     public function __construct()
     {
+        
         $this->aClases = array();
     }
 
     public function asignarClase($clase){
         $this->aClases = $clase;
+    }
+
+    public function imprimir(){
+
     }
 }
 
@@ -138,7 +141,7 @@ $alumno1->celular = "1546589765";
 $alumno1->fechaNac = "1997-04-23";
 $alumno1->setFichaMedica = "90, 178, true";
 $alumno1->presentismo = 78;
-print_r($alumno1);
+
 
 $alumno2 = new Alumno();
 $alumno2->dni = "45286479";
